@@ -1,3 +1,5 @@
+// thread warmup for
+// http://rosettacode.org/wiki/Magnanimous_numbers
 import std.stdio;
 import std.bigint;
 import std.concurrency;
