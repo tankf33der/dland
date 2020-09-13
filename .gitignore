@@ -1,2 +1,6 @@
+# executables
+factory
 threadring
+
+# temp files
 *.o
