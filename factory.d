@@ -1,18 +1,19 @@
 import std.stdio;
+import std.bigint;
 import std.concurrency;
 
 const N = 2;
 
 void worker(int index)
 {
-    uint Ns = 0;
-    uint Ne = 0;
+    BigInt Ns = 0;
+    BigInt Ne = 0;
     bool stop = false;
     while (!stop)
     {
         // getting range for calculating
         receive(
-            (uint s, uint e) {
+            (BigInt s, BigInt e) {
                 writeln(index, " got new range: ", s, ":", e-1);
                 Ns = s;
                 Ne = e;
@@ -20,7 +21,8 @@ void worker(int index)
             (Variant _) { stop = true; }
             );
         // processing range of numbers
-        //writeln(index, " processing range: ", Ns, ":", Ne-1);
+        // ...
+        // ...
         //done, send me next
         ownerTid.send(thisTid, true);
     }
@@ -29,8 +31,8 @@ void worker(int index)
 void main ()
 {
     Tid[N] w;
-    uint N = 1;
-    uint Ne = 100000;
+    BigInt N = 1;
+    BigInt Ne = 100000;
 
     // create
     for (int i = 0; i < w.length; i++)
