@@ -22,7 +22,7 @@ void worker(int i)
             });
         if (N == 0)
         {
-            ownerTid().send(i);
+            ownerTid.send(i);
         }
         else
         {
