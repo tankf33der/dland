@@ -7,6 +7,7 @@ uint urandom() @safe
 {
     auto f = File("/dev/urandom", "r");
     scope(exit) f.close();
+
     auto buf = f.rawRead(new ubyte[4]);
     return buf.read!uint();
 }
