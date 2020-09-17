@@ -16,7 +16,7 @@ uint urandom() @safe
 // works on n > 1024
 bool isPrime(in BigInt n) @safe
 {
-	if (n > 2 && !(n & 1))
+    if (n > 2 && !(n & 1))
     {
         return false;
     }
