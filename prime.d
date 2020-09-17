@@ -24,9 +24,9 @@ bool isPrime(in BigInt n)
 	}
 
 	outer:
-	foreach (immutable _; 0..16)
+	foreach (immutable _; 0..8)
 	{
-		ulong a = uniform(2, 4096);
+		ulong a = uniform(2, 1024);
 		BigInt b = n / a;
 		BigInt x = powmod(b, d, n);
 		if (x == 1 || x == n - 1)
@@ -47,7 +47,6 @@ bool isPrime(in BigInt n)
 void main()
 {
 	auto f = File("composit.dat", "r");
-	//auto f = File("/root/composit-dat/psps-below-2-to-64.txt", "r");
 	scope(exit) f.close();
 
 	auto rnd = Random(urandom());
