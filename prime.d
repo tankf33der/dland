@@ -5,10 +5,10 @@ import std.random;
 
 uint urandom() @safe
 {
-	auto f = File("/dev/urandom", "r");
-	scope(exit) f.close();
-	auto buf = f.rawRead(new ubyte[4]);
-	return buf.read!uint();
+    auto f = File("/dev/urandom", "r");
+    scope(exit) f.close();
+    auto buf = f.rawRead(new ubyte[4]);
+    return buf.read!uint();
 }
 
 // Input: n is always > 2 and odd
