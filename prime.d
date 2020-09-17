@@ -17,9 +17,9 @@ uint urandom() @safe
 bool isPrime(in BigInt n) @safe
 {
 	if (n > 2 && !(n & 1))
-	{
-		return false;
-	}
+    {
+        return false;
+    }
 
 	BigInt d = n - 1;
 	ulong s = 0;
