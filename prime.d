@@ -24,7 +24,7 @@ bool isPrime(in BigInt n)
 	}
 
 	outer:
-	foreach (immutable _; 0..32)
+	foreach (immutable _; 0..16)
 	{
 		ulong a = uniform(2, 4096);
 		BigInt b = n / a;
