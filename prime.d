@@ -26,7 +26,7 @@ bool isPrime(in BigInt n)
 	outer:
 	foreach (immutable _; 0..32)
 	{
-		ulong a = uniform(2, 1024);
+		ulong a = uniform(2, 4096);
 		BigInt b = n / a;
 		BigInt x = powmod(b, d, n);
 		if (x == 1 || x == n - 1)
@@ -46,8 +46,8 @@ bool isPrime(in BigInt n)
 
 void main()
 {
-	//auto f = File("composit.dat", "r");
-	auto f = File("/root/composit-dat/psps-below-2-to-64.txt", "r");
+	auto f = File("composit.dat", "r");
+	//auto f = File("/root/composit-dat/psps-below-2-to-64.txt", "r");
 	scope(exit) f.close();
 
 	auto rnd = Random(urandom());
@@ -62,4 +62,9 @@ void main()
 			writeln("found prime: ", a);
 		}
 	}
+	// true
+	// writeln(isPrime(cast(BigInt)"4547337172376300111955330758342147474062293202868155909489"));
+	// false
+	// writeln(isPrime(cast(BigInt)"4547337172376300111955330758342147474062293202868155909393"));
+
 }
